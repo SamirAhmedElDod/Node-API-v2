@@ -17,7 +17,7 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
-app.use(cors(corsOptions));
+app.use(cors("http://127.0.0.1:5173/"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // Hazem
@@ -35,7 +35,9 @@ app.get("/", (req, res) => {
 app.use(errorMiddleware);
 
 mongoose
-  .connect("mongodb+srv://Hazem:admin123_Hazem@hazemapi.a0fawvi.mongodb.net/Node-API?retryWrites=true&w=majority")
+  .connect(
+    "mongodb+srv://Hazem:admin123_Hazem@hazemapi.a0fawvi.mongodb.net/Node-API?retryWrites=true&w=majority"
+  )
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Node ApI is Running on Port ${PORT}`);
