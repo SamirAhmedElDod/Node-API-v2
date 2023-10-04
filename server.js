@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 app.use(errorMiddleware);
 
 mongoose
-  .connect(MONGO_URL)
+  .connect("mongodb+srv://Hazem:admin123_Hazem@hazemapi.a0fawvi.mongodb.net/Node-API?retryWrites=true&w=majority")
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Node ApI is Running on Port ${PORT}`);
